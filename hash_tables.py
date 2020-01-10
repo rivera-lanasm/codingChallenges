@@ -53,9 +53,20 @@ def twoStrings(s1, s2):
 		print("NO")
 		return "NO"
 
+# ================================================================
+# problem 3: sherlock and anagrams
+
+# Two strings are anagrams of each other if the letters of one string can be rearranged to form the other string.
+# Given a string, find the number of pairs of substrings of the string that are anagrams of each other
+
+def sherlockAndAnagrams(s):
+
+	return
+
+
 
 
 if __name__ == '__main__':
-	s1 = "beetroot"
-	s2 = "sandals"
-	twoStrings(s1,s2)
+	sherlockAndAnagrams("ifailuhkqq")
+
+	sherlockAndAnagrams("kkkk")
