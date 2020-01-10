@@ -60,6 +60,11 @@ def twoStrings(s1, s2):
 # Given a string, find the number of pairs of substrings of the string that are anagrams of each other
 
 def sherlockAndAnagrams(s):
+	# generate list of substrings -> counter
+	length = len(s)
+	
+
+	# permute key * value of counter
 
 	return
 
