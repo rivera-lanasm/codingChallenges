@@ -34,7 +34,7 @@ def checkMagazine(magazine, note):
 # problem 2: two strings
 # Given two strings, determine if they share a common substring. A substring may be as small as one character.
 # For example, the words "a", "and", "art" share the common substring . The words "be" and "cat" do not share a substring.
-# Complete the function twoStrings in the editor below. 
+# Complete the function twoStrings in the editor below.
 # It should return a string, either YES or NO based on whether the strings share a common substring.
 
 from collections import Counter
@@ -60,18 +60,32 @@ def twoStrings(s1, s2):
 # Given a string, find the number of pairs of substrings of the string that are anagrams of each other
 
 def sherlockAndAnagrams(s):
-	# generate list of substrings -> counter
-	length = len(s)
-	
+	output = []
 
-	# permute key * value of counter
+	sub_index = list(range(1,len(s)))
+	for i in sub_index:
+		temp = [s[val:val+i] for val in range(len(s)-i+1)]
+		output.append(temp)
 
-	return
+	anagrams = 0
+	for group in output:
+
+		out = list(map(lambda x: Counter(list(x)), group))
+		print(out)
+		# convert dictionaries to lists of tuples --> Counter --> sum
+		anagrams += reduce(lambda x,y: x==y, out)
+		print(anagrams)
+
+
+
+	return anagrams
+
 
 
 
 
 if __name__ == '__main__':
-	sherlockAndAnagrams("ifailuhkqq")
+	x = sherlockAndAnagrams("hello") # ifailuhkqq
+	print(x)
 
-	sherlockAndAnagrams("kkkk")
+	# sherlockAndAnagrams("kkkk")

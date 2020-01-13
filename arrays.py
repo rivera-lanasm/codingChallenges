@@ -55,6 +55,8 @@ def rotLeft(a, d):
     return [a[shift(a_len,index+d)] for index, val in enumerate(a)]
 
 
+# ===================================================
+
 if __name__ == "__main__":
 
     # hour glass sum
