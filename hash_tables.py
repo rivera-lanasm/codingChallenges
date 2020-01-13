@@ -13,7 +13,7 @@ import sys
 
 from collections import Counter
 from functools import reduce
-
+import itertools
 def checkMagazine(magazine, note):
 	mag = Counter(magazine)
 	note = Counter(note)
@@ -71,10 +71,18 @@ def sherlockAndAnagrams(s):
 	for group in output:
 
 		out = list(map(lambda x: Counter(list(x)), group))
-		print(out)
+		
+		out_cart = list(itertools.product(out,out))
+		
+		matches = len(list(filter(lambda x: x[0]==x[1], out_cart))) - len(out)
+		
 		# convert dictionaries to lists of tuples --> Counter --> sum
-		anagrams += reduce(lambda x,y: x==y, out)
-		print(anagrams)
+		# out_cart = list(map(lambda x: list(itertools.product(x,x)),out))
+		# anagrams += reduce(lambda x,y: x==y, out)
+		# print(out_cart)
+
+		anagrams += matches//2
+
 
 
 
@@ -85,7 +93,7 @@ def sherlockAndAnagrams(s):
 
 
 if __name__ == '__main__':
-	x = sherlockAndAnagrams("hello") # ifailuhkqq
+	x = sherlockAndAnagrams("ifailuhkqq") # ifailuhkqq
 	print(x)
 
 	# sherlockAndAnagrams("kkkk")
