@@ -1,5 +1,5 @@
 
-#TODO Problem 1: 2D array: Hourglass Sum 
+# Problem 1: 2D array: Hourglass Sum
 
 def hourglassSum(arr):
 
@@ -40,9 +40,9 @@ def hourglassSum(arr):
 
 #? ===========================================
 
-#TODO Arrays Problem 2; Left Rotation
-#TODO A left rotation operation on an array shifts each of the 
-#TODO array's elements 1 unit to the left.
+# Arrays Problem 2; Left Rotation
+# A left rotation operation on an array shifts each of the 
+# array's elements 1 unit to the left.
 
 def rotLeft(a, d):
     a_len = len(a)
@@ -56,25 +56,34 @@ def rotLeft(a, d):
 
 
 # ===================================================
+# problem 3: New Year's chaos
 
+# Any person in the queue can bribe the person directly in front of them to swap positions. 
+# If two people swap positions, they still wear the same sticker denoting their original places in line. 
+# One person can bribe at most two others
+
+# print an integer representing the minimum number of bribes necessary, or Too chaotic if the line configuration is not possible
+
+def minimumBribes(q):
+	print(q)
+	g = {}
+	g_1 = []
+	for index, val in enumerate(q):
+		if index < val - 1:
+			g[index] = val -1
+			g_1.append(index+1)
+		if val in g_1:
+			g[index] = val-1
+	print(g)
+	print(g_1)
+
+	cycles = set()
+	for k, v in g.items():
+    		if g.get(v) == k:
+        		cycles.add(tuple(sorted((k, v))))
+	print(cycles)
+	return g
+
+# ==================================================
 if __name__ == "__main__":
-
-    # hour glass sum
-    # x = [[-9, -9, -9,  1, 1, 1],
-    # [ 0, -9,  0,  4, 3, 2],
-    # [-9, -9, -9,  1, 2, 3],
-    # [0,  0,  8,  6, 6, 0],
-    # [0,  0,  0, -2, 0, 0],
-    # [0,  0,  1,  2, 4, 0]]
-    # print(hourglassSum(x))
-
-    # rot left
-    # x = [1,2,3,4,5]
-	# d = 2
-	# print(rotLeft(x,d))
-
-
-
-
-
-
+	minimumBribes([2, 1, 5, 3, 4])

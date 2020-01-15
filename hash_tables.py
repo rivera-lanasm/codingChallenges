@@ -70,18 +70,15 @@ def sherlockAndAnagrams(s):
 	anagrams = 0
 	for group in output:
 
-		out = list(map(lambda x: Counter(list(x)), group))
-		
-		out_cart = list(itertools.product(out,out))
-		
-		matches = len(list(filter(lambda x: x[0]==x[1], out_cart))) - len(out)
-		
-		# convert dictionaries to lists of tuples --> Counter --> sum
-		# out_cart = list(map(lambda x: list(itertools.product(x,x)),out))
-		# anagrams += reduce(lambda x,y: x==y, out)
-		# print(out_cart)
+		out = list(map(lambda x:Counter(list(x)), group))
 
-		anagrams += matches//2
+
+		out_cart = list(itertools.combinations(out,2))
+
+
+		matches = len(list(filter(lambda x: x[0]==x[1], out_cart)))
+
+		anagrams += matches
 
 
 
@@ -93,7 +90,7 @@ def sherlockAndAnagrams(s):
 
 
 if __name__ == '__main__':
-	x = sherlockAndAnagrams("ifailuhkqq") # ifailuhkqq
+	x = sherlockAndAnagrams("kkkk") # ifailuhkqq
 	print(x)
 
 	# sherlockAndAnagrams("kkkk")
