@@ -72,16 +72,11 @@ def sherlockAndAnagrams(s):
 
 		out = list(map(lambda x:Counter(list(x)), group))
 
-
 		out_cart = list(itertools.combinations(out,2))
-
 
 		matches = len(list(filter(lambda x: x[0]==x[1], out_cart)))
 
 		anagrams += matches
-
-
-
 
 	return anagrams
 
