@@ -45,28 +45,42 @@ def countSwaps(a):
 def maximumToys(prices, k):
 
     prices.sort()
-    cum_sum = [sum([val for val in prices[0:n]]) for n in range(len(prices))]
 
-    return cum_sum
+    i = 0
+    price_sum = 0
+    while price_sum < k:
+        price_sum += prices[i]
+        i += 1
+             
+    return i -1
 
 #? ====================================================================
 
-# problem 3: Comparator
+# problem 3: fradulent activity
+# given num of trailing days d and client' total daily expenditures for a period of n days
+# find an dprint the num of times client will receive notifcation
 
-# given an array of n player objects (which have name and score attributes)
-# write a comparator that sorts them in order of decreasing score
-# if two or more have same score, sort these alphabetrically ascending by name 
+def median_find(array):
+    n = len(array) 
+    array.sort() 
+    
+    if n % 2 == 0: 
+        median1 = array[n//2] 
+        median2 = array[n//2 - 1] 
+        median = (median1 + median2)/2
+    else: 
+        median = array[n//2]
 
-# create a checker class that implements the comparator interface
-# then write an int ompare(p1, p2) method 
+    return median 
 
-# returns -1 if a < b, 0 if a==b, 1 if a>b
+def activityNotifications(expenditure, d):
 
-def comparator(a, b):
+    len_exp = len(expenditure)
+    median_list = list(map(lambda x: median_find(expenditure[x:x+d]),range(d,len_exp-d) ))
+    #! fix range 
 
-    # decreasing score
-
-    # increasing name
+    return median_list
+    
 
 #? ====================================================================
 
@@ -80,8 +94,8 @@ if __name__ == '__main__':
     # a = [3, 2, 1]
     # countSwaps(a)
 
-    prices = [1,12,5,111,200,1000,10]
-    k = 50
-    print(maximumToys(prices, k))
+    expenditure = [2, 3, 4, 2, 3, 6, 8 ,4 ,5]
+    d = 5
+    print(activityNotifications(expenditure, d))
 
 
