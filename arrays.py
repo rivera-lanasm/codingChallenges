@@ -74,8 +74,6 @@ def minimumBribes(q):
 			g_1.append(index+1)
 		if val in g_1:
 			g[index] = val-1
-	print(g)
-	print(g_1)
 
 	cycles = set()
 	for k, v in g.items():
